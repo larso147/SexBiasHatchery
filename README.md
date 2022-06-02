@@ -1,0 +1,11 @@
+# SexBiasHatchery
+Multi-year evidence of unbiased sex ratios in hatchery and wild-reared juvenile lake sturgeon (Acipenser fulvescens)
+
+Authors: Gabrielle E. Sanfilippo, Joseph J. Riedy, Douglas L. Larson, and Kim T. Scribner
+Journal: Journal of Great Lakes Research
+Manuscript ID: GLR-D-22-00017R1
+
+Assessment of population sex ratios allows managers to forecast recruitment dynamics and loss of genetic diversity in natural populations and is important when the focal population is in low abundance and subject to demographic stochasticity. If levels of natural or artificial selection differ for males and females and levels of mortality likewise vary, lower levels of population recruitment, loss of genetic diversity, and genetic drift can occur. Lake sturgeon (  Acipenser fulvescens  ) are a species of conservation concern, where restoration efforts increasingly rely on hatchery supplementation. Raising larvae to the juvenile stage can increase survival during important early life stages; however, knowledge is lacking concerning effects of artificial rearing environments on differential sex-specific survival before release. We genetically determined the sex of 1459 Age-0 lake sturgeon from three cohorts (2016 through 2018) using PCR assays of the ALLWSex2 acipenserid sexing marker. Sexed individuals represented three groups: (1) wild-captured dispersing larvae that died during hatchery rearing, (2) wild-captured dispersing larvae that survived hatchery rearing to release, and (3) wild-captured, wild-raised fingerlings. Sex ratios of wild-captured larvae (dead+live) were nearly 50:50 in all years surveyed. We observed slight, but non-significant, directionality in sex ratios in the live and dead hatchery-reared larvae and in wild-captured fingerlings. Genetic sexing methods allow for analyses during prolonged pre-reproductive periods and are associated with different environmental and demographic circumstances, in situations where physical determination of sex is not possible.
+
+Version 1.0.0 - Generated after Revision 1, which was submitted on 4/6/2022
+<a href="https://zenodo.org/badge/latestdoi/480528795"><img src="https://zenodo.org/badge/480528795.svg" alt="DOI"></a>
