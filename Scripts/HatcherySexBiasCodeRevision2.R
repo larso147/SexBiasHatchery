@@ -123,7 +123,7 @@ pwr.chisq.test(df = 1, w=0.3, N=40, sig.level = 0.05, power = NULL)
 
 #######################Figure 2 - Distribution of Larvae By Night##############################
 
-DriftbyYear <- read_csv("data/DriftbyYear.csv")
+DriftbyYear <- read_csv("data/DriftbyYear1.csv")
 View(DriftbyYear)
 
 Dates1<- c("5/17", "5/18", "5/19", "5/20", "5/21", "5/22", "5/23", "5/24", "5/25", "5/26", "5/27", "5/28", "5/29", 
@@ -134,12 +134,14 @@ Dates1<- c("5/17", "5/18", "5/19", "5/20", "5/21", "5/22", "5/23", "5/24", "5/25
 
 p<-ggplot(data=na.omit(DriftbyYear),mapping = aes(x=Order, y=Nsturgeon2016)) +
   geom_bar(stat = "identity")+
+  geom_line(mapping = aes(x=Order, y=AveTemp2016/0.05), size=0.75, linetype = 2)+
      theme_classic() + 
      theme(axis.text.x=element_blank())+ 
      theme(axis.ticks.x = element_blank())+
      theme(axis.text.y = element_text(size=20),axis.title.y=element_text(size=20)) +
      xlab(NULL)+
      ylab(NULL)+
+  scale_y_continuous("", sec.axis = sec_axis(~ . * 0.05, name = NULL))+
   annotate(geom="text", 
            x=37, 
            y=700, 
@@ -149,12 +151,14 @@ p<-ggplot(data=na.omit(DriftbyYear),mapping = aes(x=Order, y=Nsturgeon2016)) +
 
 q<-ggplot(data=na.omit(DriftbyYear),mapping = aes(x=Order, y=NSturgeon2017)) +
   geom_bar(stat = "identity")+
+  geom_line(mapping = aes(x=Order, y=AveTemp2017/0.006),  size=0.75, linetype = 2)+
      theme_classic() + 
      theme(axis.text.x=element_blank())+
      theme(axis.ticks.x = element_blank())+
      theme(axis.text.y = element_text(size=20), axis.title.y=element_text(size=20))+
      xlab(NULL)+
      ylab(NULL)+
+  scale_y_continuous("", sec.axis = sec_axis(~ . * 0.006, name = NULL))+
   annotate(geom="text", 
            x=37, 
            y=5000, 
@@ -164,11 +168,13 @@ q<-ggplot(data=na.omit(DriftbyYear),mapping = aes(x=Order, y=NSturgeon2017)) +
 
 r<-ggplot(data=na.omit(DriftbyYear),mapping = aes(x=Order, y=NSturgeon2018))+
    geom_bar(stat = "identity")+
+  geom_line(mapping = aes(x=Order, y=AveTemp2018/0.002), size=0.75, linetype = 2)+
       theme_classic()+ 
       theme(axis.text.x = element_text(angle = 90, size=20))+
       theme(axis.text.y = element_text(size=20), axis.title.y=element_text(size=20))+
       xlab(NULL)+
       ylab(NULL)+
+   scale_y_continuous("", sec.axis = sec_axis(~ . * 0.002, name = NULL))+
    annotate(geom="text", 
            x=37,
            y=16000, 
@@ -186,11 +192,11 @@ r<-ggplot(data=na.omit(DriftbyYear),mapping = aes(x=Order, y=NSturgeon2018))+
 
 Plot1<-cowplot::plot_grid(p,q,r, ncol = 1, align = "v")
 
-y.grob <- textGrob("Number of Sturgeon Collected", gp=gpar(fontface="bold", fontsize=25, vjust = -5), rot=90)
-x.grob <- textGrob("Date", 
-                   gp=gpar(fontface="bold", fontsize=25))
+y.grob <-  textGrob("Number of Sturgeon Collected", gp=gpar(fontface="bold", fontsize=20), vjust = 2, rot=90)
+y.grob2 <- textGrob("Temp °C", gp=gpar(fontface="bold", fontsize=20), vjust = -0.01, rot=90)
+x.grob <-  textGrob("Date", gp=gpar(fontface="bold", fontsize=20), vjust = -0.25)
 
-grid.arrange(arrangeGrob(Plot1, left = y.grob, bottom = x.grob))
+grid.arrange(arrangeGrob(Plot1, left = y.grob, bottom = x.grob, right = y.grob2))
 
 #dev.off()
 
