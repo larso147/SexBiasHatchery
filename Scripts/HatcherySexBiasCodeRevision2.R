@@ -26,7 +26,7 @@ pwr.chisq.test(df = 1, w=0.3, N=82, sig.level = 0.05, power = NULL)
 chisq.test(Table2016)$expected
 
 #ChiSqareTest#
-chisq.test(Table2016)
+chisq.test(Table2016) #Note - did not use in the final analysis. 
 
 #FishersExact
 fisher.test(Table2016)
@@ -53,9 +53,6 @@ chisq.test(Table2017)$expected
 #ChiSqareTest#
 chisq.test(Table2017)
 
-#FishersExact
-fisher.test(Table2017)
-
 #Mosaicplot
 mosaicplot(Table2017,
            main = "Mosaic Plot 2017",
@@ -78,9 +75,6 @@ chisq.test(Table2018)$expected
 #ChiSquareTest#
 chisq.test(Table2018)
 
-#FishersExact
-fisher.test(Table2018)
-
 #Mosaicplot
 mosaicplot(Table2018,
            main = "Mosaic Plot 2018",
@@ -95,12 +89,11 @@ mosaicplot(Table2018,
 JuvTable=matrix(c(3,8,16,24),ncol=2)
 colnames(JuvTable)=c("2017","2018")
 rownames(JuvTable)=c("Males","Females")
-JuvTable
 
-chisq.test(JuvTable)
-
+#Fisher's Exact Test
 fisher.test(JuvTable)
 
+#Power analysis
 pwr.chisq.test(df = 1, w=0.3, N=51, sig.level = 0.05, power = NULL)
 
 #Mosaicplot
@@ -110,27 +103,26 @@ mosaicplot(JuvTable,
 )
 
 ###Build Vector / ChiSquareTest assuming equal sex ratio 2017##################################
-chisq.test(c(3,8), p=c(0.5,0.5))
+chisq.test(c(3,8), p=c(0.5,0.5)) #Could not use - small sample size, no non-parametric analog. 
 
-pwr.chisq.test(df = 1, w=0.3, N=11, sig.level = 0.05, power = NULL)
+pwr.chisq.test(df = 1, w=0.5, N=11, sig.level = 0.05, power = NULL)
 
 
 ###Build Vector / ChiSquareTest assuming equal sex ratio 2018##################################
-chisq.test(c(16,24), p=c(0.5,0.5))
+chisq.test(c(16,24), p=c(0.5,0.5)) #Could not use - small sample size, no non-parametric analog. 
 
-pwr.chisq.test(df = 1, w=0.3, N=40, sig.level = 0.05, power = NULL)
+pwr.chisq.test(df = 1, w=0.5, N=40, sig.level = 0.05, power = NULL)
 
 
 #######################Figure 2 - Distribution of Larvae By Night##############################
 
 DriftbyYear <- read_csv("data/DriftbyYear1.csv")
-View(DriftbyYear)
 
 Dates1<- c("5/17", "5/18", "5/19", "5/20", "5/21", "5/22", "5/23", "5/24", "5/25", "5/26", "5/27", "5/28", "5/29", 
           "5/30", "5/31", "6/1", "6/2", "6/3", "6/4", "6/5", "6/6", "6/7", "6/8", "6/9", "6/10", "6/11", "6/12",
           "6/13", "6/14", "6/15", "6/16", "6/17", "6/18", "6/19", "6/20", "6/21", "6/22", "6/23")
 
-#png(file="DriftbyYear.png", width = 1500, height = 1000)
+#png(file="DriftbyYearRevision.png", width = 1200, height = 800)
 
 p<-ggplot(data=na.omit(DriftbyYear),mapping = aes(x=Order, y=Nsturgeon2016)) +
   geom_bar(stat = "identity")+
